@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Pedido - Niwamy Churrascos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Estilos adicionais para o formulário */
+        .form-section {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .form-section h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 10px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        #customer-search-results {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #customer-search-results li {
+            padding: 10px;
+            cursor: pointer;
+        }
+        #customer-search-results li:hover {
+            background-color: #e8e8e8;
+        }
+        .cart-summary {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+        }
+        .cart-summary h3, .cart-summary button {
+            margin: 0;
+        }
+        .btn-finalize {
+            background-color: #27ae60;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Novo Pedido</h1>
+
+        <div class="form-section">
+            <h2>1. Dados do Cliente</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="customer-search">Buscar Cliente (por nome ou telefone)</label>
+                    <input type="text" id="customer-search" placeholder="Digite para buscar...">
+                    <ul id="customer-search-results"></ul>
+                </div>
+                <div class="form-group">
+                    <label for="customer-name">Nome do Cliente</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Telefone</label>
+                    <input type="tel" id="customer-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">Endereço de Entrega</label>
+                    <input type="text" id="customer-address">
+                </div>
+                 <div class="form-group">
+                    <label for="customer-address-ref">Referência do Endereço</label>
+                    <input type="text" id="customer-address-ref" placeholder="Ex: Portão verde, prédio da Kitanda">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>2. Itens do Pedido</h2>
+            <div id="menu-items-container">
+                </div>
+        </div>
+
+        <div class="form-section">
+            <h2>3. Detalhes Finais</h2>
+             <div class="form-grid">
+                <div class="form-group">
+                    <label for="delivery-fee">Taxa de Entrega (Kz)</label>
+                    <input type="number" id="delivery-fee" value="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label>Forma de Pagamento</label>
+                    <div>
+                        <input type="radio" id="payment-tpa" name="payment-method" value="TPA" checked>
+                        <label for="payment-tpa">TPA</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="payment-cash" name="payment-method" value="Cash">
+                        <label for="payment-cash">Cash</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="payment-transfer" name="payment-method" value="Transferência">
+                        <label for="payment-transfer">Transferência</label>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="notes">Observações</label>
+                    <textarea id="notes" rows="3" placeholder="Alguma observação sobre o pedido?"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cart-summary">
+        <h3>Subtotal: <span id="cart-subtotal">0.00</span> Kz</h3>
+        <h3>Total Geral: <span id="cart-total-general">0.00</span> Kz</h3>
+        <button class="btn-finalize" id="finalize-order-btn">Finalizar Pedido</button>
+    </div>
+
+    <script src="/js/new_order.js"></script>
+</body>
+</html>

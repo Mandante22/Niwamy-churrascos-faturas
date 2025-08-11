@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Niwamy Churrascos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/dashboard.html">Niwamy Churrascos</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard.html">Pedidos</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Dashboard de Pedidos</h1>
+
+        <div class="d-flex justify-content-between mb-3">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-danger active filter-btn" data-status="">Todos</button>
+                <button type="button" class="btn btn-outline-danger filter-btn" data-status="Pendente">Novos</button>
+                <button type="button" class="btn btn-outline-danger filter-btn" data-status="Em Preparação">Em Preparação</button>
+                <button type="button" class="btn btn-outline-danger filter-btn" data-status="Saiu para Entrega">Saiu para Entrega</button>
+                <button type="button" class="btn btn-outline-danger filter-btn" data-status="Entregue">Entregues</button>
+                <button type="button" class="btn btn-outline-danger filter-btn" data-status="Cancelado">Cancelados</button>
+            </div>
+            <a href="/new_order.html" class="btn btn-success">Novo Pedido</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th># Pedido</th>
+                        <th>Cliente</th>
+                        <th>Telefone</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-list">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

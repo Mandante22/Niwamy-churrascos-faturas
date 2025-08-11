@@ -1,0 +1,5 @@
+# Ignorar a pasta de módulos do Node
+node_modules/
+
+# Ignorar o ficheiro da base de dados local
+backend/niwamy_app.db
